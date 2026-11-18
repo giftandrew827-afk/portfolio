@@ -34,7 +34,7 @@ export default async function ProjectPage({
 
   const details = [
     { label: 'My role', value: 'Concept, script, AI production and edit' },
-    { label: 'Format', value: 'AI-generated video' },
+    { label: 'Format', value: project.format ?? 'AI-generated video' },
     { label: 'Tools I use', value: tools.map((t) => t.name).join(', ') },
   ]
 

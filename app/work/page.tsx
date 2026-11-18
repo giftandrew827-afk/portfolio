@@ -13,7 +13,7 @@ export default function WorkPage() {
   return (
     <>
       <PageIntro eyebrow="Work" title="Stories I wrote, produced and edited.">
-        <p>Original AI-generated videos. Open a project to watch it.</p>
+        <p>Original AI-generated videos and advertisements. Open a project to watch it.</p>
       </PageIntro>
       <section className="mx-auto max-w-6xl px-5 pb-6">
         <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

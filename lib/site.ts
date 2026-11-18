@@ -22,6 +22,7 @@ export type Project = {
   summary: string
   tags: string[]
   video: string
+  format?: string
 }
 
 const projectTags = ['Script', 'AI video', 'Edit']
@@ -50,6 +51,15 @@ export const projects: Project[] = [
     summary: 'An original AI-generated video. I wrote, produced and edited it myself.',
     tags: projectTags,
     video: '/videos/project-03.mp4',
+  },
+  {
+    slug: 'advertisement',
+    number: '04',
+    title: 'Advertisement',
+    summary: 'An engaging short-form advertisement created to capture attention and communicate a brand message clearly.',
+    tags: ['Advertisement', 'Script', 'Edit'],
+    video: '/videos/advertisement.mp4',
+    format: 'Social media advertisement',
   },
 ]
 
