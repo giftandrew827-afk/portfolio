@@ -1,6 +1,7 @@
 export const contact = {
   email: 'giftandrew827@gmail.com',
   whatsappDisplay: '+234 708 873 7289',
+  phoneUrl: 'tel:+2347088737289',
   whatsappUrl:
     'https://wa.me/2347088737289?text=' +
     encodeURIComponent("Hi Gift, I found your portfolio and I'd love to talk."),
