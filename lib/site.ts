@@ -80,6 +80,16 @@ export const projects: Project[] = [
     video: '/videos/clothing-advertisement.mp4',
     format: 'Clothing brand advertisement',
   },
+  {
+    slug: 'mcdonalds-spec-ad',
+    number: '07',
+    title: "McDonald's Spec Ad",
+    summary:
+      "An independent McDonald's spec advertisement created for this portfolio; it was not commissioned by or affiliated with the brand.",
+    tags: ['Spec ad', 'Food & beverage', 'Edit'],
+    video: '/videos/mcdonalds-spec-ad.mp4',
+    format: 'Self-initiated portfolio concept',
+  },
 ]
 
 export type ServiceIcon = 'film' | 'pen' | 'megaphone' | 'calendar' | 'scissors' | 'palette'
