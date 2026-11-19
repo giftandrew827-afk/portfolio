@@ -61,6 +61,24 @@ export const projects: Project[] = [
     video: '/videos/advertisement.mp4',
     format: 'Social media advertisement',
   },
+  {
+    slug: 'perfume-brand-campaign',
+    number: '05',
+    title: 'Fragrance in Focus',
+    summary: 'A polished short-form ad that brings a perfume brand to life and gives its fragrance a memorable spotlight.',
+    tags: ['Perfume ad', 'AI video', 'Edit'],
+    video: '/videos/perfume-advertisement.mp4',
+    format: 'Perfume brand advertisement',
+  },
+  {
+    slug: 'clothing-brand-campaign',
+    number: '06',
+    title: 'Style in Motion',
+    summary: 'A stylish short-form ad created to showcase a clothing brand and make its collection stand out.',
+    tags: ['Fashion ad', 'AI video', 'Edit'],
+    video: '/videos/clothing-advertisement.mp4',
+    format: 'Clothing brand advertisement',
+  },
 ]
 
 export type ServiceIcon = 'film' | 'pen' | 'megaphone' | 'calendar' | 'scissors' | 'palette'

@@ -43,7 +43,7 @@ export default async function ProjectPage({
       <article className="mx-auto max-w-6xl px-5 py-8 md:py-14">
         <Link
           href="/work"
-          className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm font-medium underline decoration-primary decoration-2 underline-offset-4 transition-colors hover:border-primary"
+          className="inline-flex items-center gap-2 rounded-lg border border-border px-3.5 py-2 text-sm font-medium transition-colors hover:border-foreground/30 hover:bg-card"
         >
           <ArrowLeft className="size-4" aria-hidden="true" />
           All work
@@ -85,7 +85,7 @@ export default async function ProjectPage({
               href={contact.tiktokUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-border px-5 py-3 text-sm font-semibold underline decoration-primary decoration-2 underline-offset-4 transition-colors hover:border-primary sm:w-fit"
+              className="inline-flex items-center justify-center gap-2 rounded-lg border border-border px-4 py-2.5 text-sm font-semibold transition-colors hover:border-foreground/30 hover:bg-card sm:w-fit"
             >
               More on TikTok {contact.tiktokHandle}
               <ArrowUpRight className="size-4" aria-hidden="true" />

@@ -20,14 +20,14 @@ export function ContactCta() {
               href={contact.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 text-xl font-bold text-primary-foreground transition-opacity hover:opacity-90"
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
             >
               <MessageCircle className="size-4" aria-hidden="true" />
               WhatsApp me
             </a>
             <a
               href={`mailto:${contact.email}`}
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-border px-6 py-3.5 text-sm font-semibold underline decoration-primary decoration-2 underline-offset-4 transition-colors hover:border-primary"
+              className="inline-flex items-center justify-center gap-2 rounded-lg border border-border px-4 py-2.5 text-sm font-semibold transition-colors hover:border-foreground/30 hover:bg-background"
             >
               <Mail className="size-4" aria-hidden="true" />
               Email me

@@ -30,7 +30,7 @@ export default function HomePage() {
             <div className="flex flex-col gap-3 sm:flex-row">
               <Link
                 href="/work"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 text-xl font-bold text-primary-foreground transition-opacity hover:opacity-90"
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
               >
                 See my work
                 <ArrowRight className="size-4" aria-hidden="true" />
@@ -39,7 +39,7 @@ export default function HomePage() {
                 href={contact.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-card px-6 py-3.5 text-sm font-semibold transition-colors hover:border-primary"
+                className="inline-flex items-center justify-center gap-2 rounded-lg border border-border bg-card px-4 py-2.5 text-sm font-semibold transition-colors hover:border-foreground/30 hover:bg-card"
               >
                 <MessageCircle className="size-4" aria-hidden="true" />
                 WhatsApp me
@@ -56,7 +56,7 @@ export default function HomePage() {
           <SectionHeading eyebrow="Selected work" title="Recent projects" href="/work" linkLabel="All work" />
         </div>
         <ul className="no-scrollbar -mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-16 md:mx-auto md:grid md:max-w-6xl md:grid-cols-3 md:gap-6 md:overflow-visible md:pb-20">
-          {projects.map((project) => (
+          {projects.slice(-3).map((project) => (
             <li key={project.slug} className="w-[80%] shrink-0 snap-start sm:w-[45%] md:w-auto">
               <ProjectCard project={project} />
             </li>

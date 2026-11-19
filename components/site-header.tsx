@@ -25,7 +25,7 @@ export function SiteHeader() {
         </Link>
 
         <nav aria-label="Main" className="hidden md:block">
-          <ul className="flex items-center gap-1 rounded-full border border-border bg-card p-1">
+          <ul className="flex items-center gap-1">
             {navLinks.map((link) => {
               const active = pathname.startsWith(link.href)
               return (
@@ -34,9 +34,9 @@ export function SiteHeader() {
                     href={link.href}
                     aria-current={active ? 'page' : undefined}
                     className={cn(
-                      'block rounded-full px-4 py-1.5 text-sm font-medium transition-colors',
+                      'relative block rounded-md px-3 py-2 text-sm font-medium transition-colors after:absolute after:inset-x-3 after:bottom-0 after:h-px',
                       active
-                        ? 'text-foreground underline decoration-primary decoration-2 underline-offset-4'
+                        ? 'text-foreground after:bg-primary'
                         : 'text-muted-foreground hover:text-foreground',
                     )}
                   >
@@ -53,14 +53,14 @@ export function SiteHeader() {
             href={contact.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-xl font-bold text-primary-foreground transition-opacity hover:opacity-90 md:inline-flex"
+            className="hidden items-center gap-1.5 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90 md:inline-flex"
           >
             Hire me
             <ArrowUpRight className="size-4" aria-hidden="true" />
           </a>
           <button
             type="button"
-            className="inline-flex size-10 items-center justify-center rounded-full border border-border bg-card md:hidden"
+            className="inline-flex size-9 items-center justify-center rounded-md border border-border bg-card transition-colors hover:bg-muted md:hidden"
             aria-expanded={open}
             aria-controls="mobile-nav"
             onClick={() => setOpen((v) => !v)}
@@ -73,7 +73,7 @@ export function SiteHeader() {
 
       {open && (
         <nav id="mobile-nav" aria-label="Mobile" className="border-t border-border bg-background md:hidden">
-          <ul className="flex flex-col gap-1 px-5 py-4">
+          <ul className="mx-auto flex max-w-6xl flex-col divide-y divide-border px-5 py-2">
             {navLinks.map((link) => {
               const active = pathname.startsWith(link.href)
               return (
@@ -83,12 +83,12 @@ export function SiteHeader() {
                     onClick={() => setOpen(false)}
                     aria-current={active ? 'page' : undefined}
                     className={cn(
-                      'flex items-center justify-between rounded-xl px-4 py-3 font-heading text-xl font-semibold',
-                      active ? 'bg-card text-foreground underline decoration-primary decoration-2 underline-offset-4' : 'text-foreground',
+                      'flex items-center justify-between rounded-md px-3 py-3 text-sm font-medium transition-colors',
+                      active ? 'bg-card text-foreground' : 'text-muted-foreground hover:bg-card hover:text-foreground',
                     )}
                   >
                     {link.label}
-                    <ArrowUpRight className="size-5 text-muted-foreground" aria-hidden="true" />
+                    <ArrowUpRight className="size-4 text-muted-foreground" aria-hidden="true" />
                   </Link>
                 </li>
               )
@@ -98,7 +98,7 @@ export function SiteHeader() {
                 href={contact.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex justify-center rounded-full bg-primary px-4 py-3.5 text-xl font-bold text-primary-foreground"
+                className="inline-flex items-center justify-center rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
               >
                 Hire me on WhatsApp
               </a>

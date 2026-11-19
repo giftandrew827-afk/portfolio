@@ -21,7 +21,7 @@ export function SectionHeading({
       {href && linkLabel && (
         <Link
           href={href}
-          className="inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-2 text-sm font-medium underline decoration-primary decoration-2 underline-offset-4 transition-colors hover:border-primary"
+          className="inline-flex items-center gap-1.5 rounded-lg border border-border px-3.5 py-2 text-sm font-medium transition-colors hover:border-foreground/30 hover:bg-card"
         >
           {linkLabel}
           <ArrowRight className="size-4" aria-hidden="true" />

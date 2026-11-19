@@ -14,7 +14,7 @@ export function PortraitCard({ priority = false }: { priority?: boolean }) {
           fill
           priority={priority}
           sizes="(min-width: 768px) 384px, 90vw"
-          className="object-contain object-bottom"
+          className="object-contain object-bottom brightness-[0.9] saturate-[0.82] contrast-[1.04]"
         />
       </div>
       <span className="absolute left-3 top-5 rounded-full bg-background/90 px-3 py-1.5 text-xs font-semibold backdrop-blur">
