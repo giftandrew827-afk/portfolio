@@ -43,6 +43,11 @@ export function SiteFooter() {
                   TikTok
                 </a>
               </li>
+              <li>
+                <a href={contact.linkedinUrl} target="_blank" rel="noopener noreferrer" className="hover:underline hover:decoration-primary hover:decoration-2 hover:underline-offset-4">
+                  LinkedIn
+                </a>
+              </li>
             </ul>
           </div>
         </div>

@@ -7,6 +7,8 @@ export const contact = {
     encodeURIComponent("Hi Gift, I found your portfolio and I'd love to talk."),
   tiktokHandle: '@cgiftedtales',
   tiktokUrl: 'https://www.tiktok.com/@cgiftedtales',
+  linkedinUrl:
+    'https://www.linkedin.com/in/gift-chinyere-chukwuemeka-40b1383b7?utm_source=share_via&utm_content=profile&utm_medium=member_ios',
 }
 
 export const navLinks = [
