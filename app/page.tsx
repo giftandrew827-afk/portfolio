@@ -6,6 +6,7 @@ import { SectionHeading } from '@/components/section-heading'
 import { PortraitCard } from '@/components/portrait-card'
 import { BrandGrid } from '@/components/brand-grid'
 import { ServiceCard } from '@/components/service-card'
+import { ReachStats } from '@/components/reach-stats'
 import { contact, platforms, projects, services, tools } from '@/lib/site'
 
 export default function HomePage() {
@@ -50,6 +51,8 @@ export default function HomePage() {
           <PortraitCard priority />
         </div>
       </section>
+
+      <ReachStats />
 
       <section className="border-y border-border bg-card">
         <div className="mx-auto max-w-6xl px-5 py-16 md:py-20">
