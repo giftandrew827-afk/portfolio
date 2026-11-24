@@ -2,19 +2,23 @@
 
 import { useEffect, useRef, useState } from 'react'
 
-const milestones = {
-  followers: 17_800,
-  views: 3_000_000,
-}
+const milestones = [
+  { platform: 'TikTok', followers: 17_800, views: 3_000_000 },
+  { platform: 'Facebook', followers: 5_600, views: 10_000 },
+  { platform: 'Instagram', followers: 2_000, views: 100_000 },
+]
 
 const formatter = new Intl.NumberFormat('en', {
   notation: 'compact',
   maximumFractionDigits: 1,
 })
+const accessibleFormatter = new Intl.NumberFormat('en')
 
 export function ReachStats() {
   const sectionRef = useRef<HTMLElement>(null)
-  const [counts, setCounts] = useState(milestones)
+  const [counts, setCounts] = useState(
+    milestones.map(({ followers, views }) => ({ followers, views })),
+  )
 
   useEffect(() => {
     const section = sectionRef.current
@@ -30,15 +34,17 @@ export function ReachStats() {
 
         const startedAt = performance.now()
         const duration = 1800
-        setCounts({ followers: 0, views: 0 })
+        setCounts(milestones.map(() => ({ followers: 0, views: 0 })))
 
         const countUp = (now: number) => {
           const progress = Math.min((now - startedAt) / duration, 1)
           const easedProgress = 1 - (1 - progress) ** 4
-          setCounts({
-            followers: Math.round(milestones.followers * easedProgress),
-            views: Math.round(milestones.views * easedProgress),
-          })
+          setCounts(
+            milestones.map(({ followers, views }) => ({
+              followers: Math.round(followers * easedProgress),
+              views: Math.round(views * easedProgress),
+            })),
+          )
 
           if (progress < 1) frame = requestAnimationFrame(countUp)
         }
@@ -70,11 +76,11 @@ export function ReachStats() {
         aria-hidden="true"
       />
 
-      <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:py-20 lg:grid-cols-[0.8fr_1.2fr] lg:items-end lg:gap-16">
-        <div className="max-w-md">
+      <div className="mx-auto max-w-6xl px-5 py-14 md:py-20">
+        <div className="max-w-lg">
           <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-background/60">
             <span className="reach-spark size-2 rounded-full bg-primary" aria-hidden="true" />
-            A little proof of the scroll-stopping
+            A snapshot of the growing audience
           </p>
           <h2
             id="reach-heading"
@@ -82,38 +88,52 @@ export function ReachStats() {
           >
             Good stories travel.
           </h2>
-          <p className="mt-3 max-w-sm text-sm leading-relaxed text-background/65 sm:text-base">
-            And these are a few of the people and plays they&apos;ve found along the way.
+          <p className="mt-3 max-w-md text-sm leading-relaxed text-background/65 sm:text-base">
+            One story, three communities. Here&apos;s how far Gift&apos;s videos have travelled so far.
           </p>
         </div>
 
-        <dl className="grid grid-cols-2 gap-5 sm:gap-8">
-          <div className="reach-stat border-l border-background/20 pl-4 sm:pl-7">
-            <dt className="text-xs font-medium uppercase tracking-[0.16em] text-background/60 sm:text-sm">
-              TikTok Followers
-            </dt>
-            <dd
-              aria-label="Over 17,800 TikTok followers"
-              className="mt-3 font-heading text-[clamp(2.6rem,8vw,5.25rem)] font-bold leading-none tracking-[-0.07em] text-primary tabular-nums"
+        <div className="mt-9 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          {milestones.map(({ platform }, index) => (
+            <article
+              key={platform}
+              className="reach-platform rounded-3xl border border-background/15 bg-background/[0.03] p-5 sm:p-6"
+              style={{ animationDelay: `${index * 120}ms` }}
+              aria-labelledby={`reach-${platform.toLowerCase()}-title`}
             >
-              <span aria-hidden="true">{formatter.format(counts.followers)}+</span>
-            </dd>
-            <p className="mt-4 text-xs text-background/50 sm:text-sm">A growing creative community</p>
-          </div>
-
-          <div className="reach-stat reach-stat-later border-l border-background/20 pl-4 sm:pl-7">
-            <dt className="text-xs font-medium uppercase tracking-[0.16em] text-background/60 sm:text-sm">
-              Video Views
-            </dt>
-            <dd
-              aria-label="Over 3 million video views"
-              className="mt-3 font-heading text-[clamp(2.6rem,8vw,5.25rem)] font-bold leading-none tracking-[-0.07em] text-primary tabular-nums"
-            >
-              <span aria-hidden="true">{formatter.format(counts.views)}+</span>
-            </dd>
-            <p className="mt-4 text-xs text-background/50 sm:text-sm">Stories watched, shared, replayed</p>
-          </div>
-        </dl>
+              <h3
+                id={`reach-${platform.toLowerCase()}-title`}
+                className="font-heading text-xl font-semibold"
+              >
+                {platform}
+              </h3>
+              <dl className="mt-6 grid grid-cols-2 gap-3">
+                <div>
+                  <dt className="text-[0.65rem] font-medium uppercase tracking-[0.15em] text-background/55 sm:text-xs">
+                    Followers
+                  </dt>
+                  <dd
+                    aria-label={`Over ${accessibleFormatter.format(milestones[index].followers)} ${platform} followers`}
+                    className="mt-2 font-heading text-[clamp(1.9rem,6vw,3rem)] font-bold leading-none tracking-[-0.06em] text-primary tabular-nums"
+                  >
+                    <span aria-hidden="true">{formatter.format(counts[index].followers)}+</span>
+                  </dd>
+                </div>
+                <div>
+                  <dt className="text-[0.65rem] font-medium uppercase tracking-[0.15em] text-background/55 sm:text-xs">
+                    Video views
+                  </dt>
+                  <dd
+                    aria-label={`Over ${accessibleFormatter.format(milestones[index].views)} ${platform} video views`}
+                    className="mt-2 font-heading text-[clamp(1.9rem,6vw,3rem)] font-bold leading-none tracking-[-0.06em] text-primary tabular-nums"
+                  >
+                    <span aria-hidden="true">{formatter.format(counts[index].views)}+</span>
+                  </dd>
+                </div>
+              </dl>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   )
